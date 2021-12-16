@@ -3,13 +3,15 @@ import './login.scss';
 import firebase from '../../firebase'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faGoogle, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 function Login() {
     // const [state, setState] = useState({
     //     isLogin: false,
     // });
     const [login, setLogin] = useState(false);
+
+    const history = useHistory();
 
     let submit_handler = () => {
         var provider = new firebase.auth.GoogleAuthProvider();
@@ -165,7 +167,7 @@ function Login() {
 
             ) :
                 <div>
-                    {window.location.replace("http://localhost:3000/provider")}
+                    {history.push('/provider')}
 
                 </div>
             }
