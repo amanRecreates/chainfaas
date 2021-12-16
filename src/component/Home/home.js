@@ -1,4 +1,4 @@
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import style from './home.module.scss';
 function Home() {
     return (
