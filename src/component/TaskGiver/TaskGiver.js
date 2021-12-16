@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './TaskGiver.scss'
 import firebase from '../../firebase'
+import { Link } from 'react-router-dom';
 
 const TaskGiver = () => {
     const [name, setName] = useState('')
@@ -25,11 +26,10 @@ const TaskGiver = () => {
         setRam('')
         setCores('')
         setDesc('')
-        window.location.reload();
     }
 
     return (
-        <form onSubmit={handleSubmit} className="task_form">
+        <form className="task_form">
             <label htmlFor="name">Name</label>
             <input type="text" name="name" value={name} onChange={(e) => setName(e.target.value)} required={true} />
             <label htmlFor="desc">Description</label>
@@ -38,7 +38,7 @@ const TaskGiver = () => {
             <input type="text" name="ram" value={ram} onChange={(e) => setRam(e.target.value)} required={true} />
             <label htmlFor="cores">Cores Required</label>
             <input type="text" name="cores" value={cores} onChange={(e) => setCores(e.target.value)} required={true} />
-            <button>Send the Task</button>
+            <Link to="/provider" onClick={handleSubmit}>Send the Task</Link>
         </form>
     );
 }

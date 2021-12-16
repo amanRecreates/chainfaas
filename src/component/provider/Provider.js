@@ -6,6 +6,7 @@ import Chart from './Chart';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import tick from '../../data/tick.mp4'
+import { useHistory } from "react-router-dom";
 
 const Provider = () => {
    const [jobs, setJobs] = useState(null);
@@ -25,6 +26,7 @@ const Provider = () => {
 
    const active1 = useRef(null);
    const active2 = useRef(null);
+   const history = useHistory();
 
    let getOS = () => {
       if (navigator.userAgent.indexOf("Win") !== -1) return "Windows OS";
@@ -63,7 +65,7 @@ const Provider = () => {
 
    let onLogout = () => {
       firebase.auth().signOut().then(() => {
-         window.location.replace("http://localhost:3000/login");
+         history.push('/login')
       }).catch((error) => {
          console.log('Error in signing out');
       });
