@@ -41,16 +41,6 @@ function Login() {
 
         container.classList.remove('sign-up-mode')
     }
-    // for actual login
-    let logInHandler = (e) => {
-        e.preventDefault()
-        window.location.replace("http://localhost:3000/provider");
-    }
-
-    let signHandler = (e) => {
-        e.preventDefault()
-        window.location.replace("http://localhost:3000/login");
-    }
 
     useEffect(() => {
         firebase.auth().onAuthStateChanged(function (user) {
@@ -88,7 +78,7 @@ function Login() {
                                         <i class="fas fa-lock"></i>
                                         <input type="password" placeholder="Password" />
                                     </div>
-                                    <input type="submit" value="Login" class="btn solid" onClick={logInHandler} />
+                                    <Link to="/provider" type="submit" value="Login" class="btn solid">Login</Link>
                                     <p class="social-text">Or Sign in with social platforms</p>
                                     <div class="social-media">
                                         <Link to="#" class="social-icon">
@@ -105,7 +95,7 @@ function Login() {
                                         </Link>
                                     </div>
                                 </form>
-                                <form action="#" class="sign-up-form" >
+                                <form class="sign-up-form" onClick={(e) => e.preventDefault()}>
                                     <h2 class="title">Sign up</h2>
                                     <div class="input-field">
                                         <i class="fas fa-user"></i>
@@ -119,7 +109,7 @@ function Login() {
                                         <i class="fas fa-lock"></i>
                                         <input type="password" placeholder="Password" />
                                     </div>
-                                    <input type="submit" class="btn" value="Sign up" onClick={signHandler} />
+                                    <input type="submit" class="btn" value="Sign up" onClick={signInHandler} />
                                     <p class="social-text">Or Sign up with social platforms</p>
                                     <div class="social-media">
                                         <Link to="#" class="social-icon">
