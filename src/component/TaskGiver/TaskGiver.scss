@@ -1,0 +1,23 @@
+.task_form {
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0rem 5rem;
+    transition: all 0.2s 0.7s;
+    overflow: hidden;
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    font-size: 16px;
+
+    label {
+        margin: 20px 0 5px 0;
+        font-weight: 600;
+    }
+
+    button {
+        margin-top: 30px;
+        padding: 16px;
+    }
+}
