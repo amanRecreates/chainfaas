@@ -6,9 +6,10 @@ import { faFacebook, faGoogle, faLinkedin, faTwitter } from '@fortawesome/free-b
 import { Link } from 'react-router-dom';
 
 function Login() {
-    const [state, setState] = useState({
-        isLogin: false,
-    });
+    // const [state, setState] = useState({
+    //     isLogin: false,
+    // });
+    const [login, setLogin] = useState(false);
 
     let submit_handler = () => {
         var provider = new firebase.auth.GoogleAuthProvider();
@@ -47,15 +48,17 @@ function Login() {
             if (user) {
                 console.log("user signed in");
                 console.log(user.displayName + '\n' + user.email);
-                setState({
-                    isLogin: true,
-                })
+                setLogin(true)
+                // setState({
+                //     isLogin: true,
+                // })
 
             } else {
                 console.log('user not signed in');
-                setState({
-                    isLogin: false,
-                })
+                // setState({
+                //     isLogin: false,
+                // })
+                setLogin(false)
             }
         })
     }, []);
@@ -63,7 +66,7 @@ function Login() {
 
     return (
         <div className="Login">
-            {(state.isLogin === false) ? (
+            {(login === false) ? (
                 <div>
                     <div class="container">
                         <div class="forms-container">
