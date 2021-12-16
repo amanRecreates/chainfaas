@@ -28,6 +28,8 @@ const Provider = () => {
    const active2 = useRef(null);
    const history = useHistory();
 
+
+
    let getOS = () => {
       if (navigator.userAgent.indexOf("Win") !== -1) return "Windows OS";
       if (navigator.userAgent.indexOf("Mac") !== -1) return "Mac OS";
@@ -43,7 +45,7 @@ const Provider = () => {
          let obj = snapshot.val()
          let tmpArray = []
          for (let id in obj) {
-            tmpArray.push({id, ...obj[id]})
+            tmpArray.push({ id, ...obj[id] })
          }
          setJobs(tmpArray.reverse())
 
@@ -55,7 +57,7 @@ const Provider = () => {
          let obj = snapshot.val()
          let tmpArray = []
          for (let id in obj) {
-            tmpArray.push({id, ...obj[id]})
+            tmpArray.push({ id, ...obj[id] })
          }
          setTrans(tmpArray.reverse())
 
@@ -156,6 +158,16 @@ const Provider = () => {
       }
    }
 
+   let fupdate = () => {
+      active2.current.className = 'item active'
+      active1.current.className = 'item'
+      setShowTaskGiver(false)
+      setIsStarted(true)
+      setTimeout(() => {
+         setIsStarted(false)
+      }, 1000);
+   }
+
    return (
       <div className="provider">
          <div className="nav">
@@ -210,7 +222,7 @@ const Provider = () => {
                      {showAnim ? <>
                         <video src={tick} autoPlay={true} loop={false} muted={true} />
                         <div className="heading">
-                           Successfully Placed Order
+                           Request Sent Successfully
                         </div>
                      </> :
                         <>
@@ -277,7 +289,7 @@ const Provider = () => {
                <Chart isHigh={isStarted} cores={cores} />
 
             </div>
-         </> : <TaskGiver />}
+         </> : <TaskGiver fupdate={fupdate} />}
       </div>
    );
 }

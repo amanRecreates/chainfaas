@@ -81,7 +81,7 @@ function Login() {
                                         <i class="fas fa-lock"></i>
                                         <input type="password" placeholder="Password" />
                                     </div>
-                                    <Link to="/provider" type="submit" value="Login" class="btn solid">Login</Link>
+                                    <Link to="/provider" type="submit" value="Login" class="btn solid login-btn">Login</Link>
                                     <p class="social-text">Or Sign in with social platforms</p>
                                     <div class="social-media">
                                         <Link to="#" class="social-icon">

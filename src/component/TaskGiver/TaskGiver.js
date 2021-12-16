@@ -3,7 +3,7 @@ import './TaskGiver.scss'
 import firebase from '../../firebase'
 import { Link } from 'react-router-dom';
 
-const TaskGiver = () => {
+const TaskGiver = ({fupdate}) => {
     const [name, setName] = useState('')
     const [desc, setDesc] = useState('')
     const [ram, setRam] = useState('')
@@ -26,6 +26,7 @@ const TaskGiver = () => {
         setRam('')
         setCores('')
         setDesc('')
+        fupdate()
     }
 
     return (
@@ -38,7 +39,7 @@ const TaskGiver = () => {
             <input type="text" name="ram" value={ram} onChange={(e) => setRam(e.target.value)} required={true} />
             <label htmlFor="cores">Cores Required</label>
             <input type="text" name="cores" value={cores} onChange={(e) => setCores(e.target.value)} required={true} />
-            <Link to="/provider" onClick={handleSubmit}>Send the Task</Link>
+            <Link to="/provider" className='btn solid login-btn' onClick={handleSubmit}>Send the Task</Link>
         </form>
     );
 }
