@@ -40,6 +40,11 @@ const Provider = () => {
 
 
    useEffect(() => {
+      setIsStarted(true)
+      setTimeout(() => {
+         setIsStarted(false)
+      }, 1000);
+      
       let jobRef = firebase.database().ref('jobs')
       jobRef.on('value', (snapshot) => {
          let obj = snapshot.val()
